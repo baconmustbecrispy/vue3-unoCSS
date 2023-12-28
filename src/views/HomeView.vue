@@ -1,16 +1,37 @@
-<script setup></script>
+<script setup>
+import { ElMessage } from 'element-plus'
+import { useCounterStore } from '@/stores/counter'
+import { toRefs } from 'vue'
+const mOpen = () => {
+  ElMessage({
+    type: 'success',
+    message: 'This is a success message.',
+    showClose: true,
+  })
+}
+const counterStore = useCounterStore()
+const { count, doubleCount, increment } = toRefs(counterStore)
+</script>
 
 <template>
-  <main>
-    <div h-full flex select-none text-center all:transition-400>
-      <div ma>
-        <div animate-bounce-alt animate-duration-1s animate-count-infinite text-5xl fw100> UnoCSS </div>
-        <div m1 text-lg fw300 op30> The instant on-demand Atomic CSS engine. </div>
-        <div m2 flex justify-center text-2xl op30 hover="op80">
-          <a i-carbon-logo-github text-inherit href="https://github.com/unocss/unocss" target="_blank"></a>
-        </div>
-      </div>
+  <div class="flex flex-col items-center gap4">
+    <h1 class="text-3xl font900">Hello World</h1>
+
+    <hr class="w-50% border-1 border-black border-dashed" />
+
+    <div class="text-red font700">Sample Text</div>
+    <el-button type="primary" class="px4 py2" @click="mOpen">訊息提示</el-button>
+
+    <hr class="w-50% border-1 border-black border-dashed" />
+
+    <div class="flex flex-col items-center gap-2">
+      <p>Count: {{ count }}</p>
+      <p>Double Count: {{ doubleCount }}</p>
+      <el-button type="success" @click="increment">Increment</el-button>
     </div>
-    <div absolute bottom-5 left-0 right-0 text-center fw300 op30> on-demand · instant · fully customizable </div>
-  </main>
+
+    <hr class="w-50% border-1 border-black border-dashed" />
+
+    <el-link type="primary" href="\VantView">Vant Demo</el-link>
+  </div>
 </template>

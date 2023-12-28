@@ -6,5 +6,11 @@ let maxDate = new Date(2025, 5, 1)
 </script>
 
 <template>
-  <van-date-picker v-model="currentDate" title="選擇日期" :min-date="minDate" :max-date="maxDate" />
+  <van-date-picker
+    v-model="currentDate"
+    title="選擇日期"
+    :min-date="minDate"
+    :max-date="maxDate"
+    @confirm="$router.push('/')"
+    @cancel="$router.push('/')" />
 </template>
