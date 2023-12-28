@@ -1,6 +1,6 @@
 # Vue3 + UnoCSS
 
-with Pnpm + ElementPlus
+with pnpm, ElementPlus, Vant
 
 ## 使用
 
